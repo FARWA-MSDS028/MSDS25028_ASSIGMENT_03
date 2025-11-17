@@ -48,3 +48,15 @@ pay_staff <- merge(payment, staff, by = "staff_id", all.x = TRUE)
 pay_staff[, staff_full := paste(first_name, last_name)]
 q5 <- pay_staff[, .(payment_id, amount, payment_date, staff_full)]
 View(q5)
+
+
+
+# find rented inventory IDs
+rented <- merge(inventory, rental, by = "inventory_id")
+
+# films that were rented
+rented_ids <- unique(rented$film_id)
+"q6_output.csv"
+# films NOT rented
+q6 <- film[!film_id %in% rented_ids]
+View(q6)
