@@ -19,3 +19,5 @@ store         <- fread("store.csv")
 head(film)
 View(head(film))
 
+res1 <- film[rating == "PG" & rental_duration > 5]
+View(res1)
