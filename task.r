@@ -41,3 +41,10 @@ cust_store <- merge(customer, store, by = "store_id", all.x = TRUE)
 cust_store[, full_name := paste(first_name, last_name)]
 q4 <- cust_store[, .(customer_id, full_name, store_id)]
 View(q4)
+
+
+
+pay_staff <- merge(payment, staff, by = "staff_id", all.x = TRUE)
+pay_staff[, staff_full := paste(first_name, last_name)]
+q5 <- pay_staff[, .(payment_id, amount, payment_date, staff_full)]
+View(q5)
