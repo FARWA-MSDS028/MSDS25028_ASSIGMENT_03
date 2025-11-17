@@ -22,3 +22,8 @@ View(head(film))
 res1 <- film[rating == "PG" & rental_duration > 5]
 View(res1)
 res2 <- film[release_year == 2006, .N]
+
+h <- film[
+  , .(avg_rental_rate = mean(rental_rate, na.rm=TRUE)),
+  by = rating
+][order(-avg_rental_rate)]
