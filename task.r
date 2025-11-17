@@ -35,3 +35,9 @@ films_lang <- merge(
   by = "language_id",
   all.x = TRUE)
 View(films_lang)
+
+
+cust_store <- merge(customer, store, by = "store_id", all.x = TRUE)
+cust_store[, full_name := paste(first_name, last_name)]
+q4 <- cust_store[, .(customer_id, full_name, store_id)]
+View(q4)
