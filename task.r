@@ -27,3 +27,11 @@ h <- film[
   , .(avg_rental_rate = mean(rental_rate, na.rm=TRUE)),
   by = rating
 ][order(-avg_rental_rate)]
+
+
+
+films_lang <- merge(
+  film, language,
+  by = "language_id",
+  all.x = TRUE)
+View(films_lang)
