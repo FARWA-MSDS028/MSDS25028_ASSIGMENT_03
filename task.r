@@ -60,3 +60,16 @@ rented_ids <- unique(rented$film_id)
 # films NOT rented
 q6 <- film[!film_id %in% rented_ids]
 View(q6)
+
+
+
+
+
+png("films_rating.png")
+barplot(
+  film[, .N, by = rating]$N,
+  names.arg = film[, .N, by = rating]$rating,
+  main = "Number of Films per Rating")
+dev.off()
+View("Saved plot to films_per_rating.png")
+rating_table <- film[, .N, by = rating]
