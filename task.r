@@ -21,3 +21,4 @@ View(head(film))
 
 res1 <- film[rating == "PG" & rental_duration > 5]
 View(res1)
+res2 <- film[release_year == 2006, .N]
